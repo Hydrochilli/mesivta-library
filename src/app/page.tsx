@@ -3,7 +3,7 @@ import { BookOpen, CalendarDays, Megaphone, ScrollText, Search, Code2, Trees, Sh
 import { createAdminClient } from "@/lib/supabase/server";
 import { BookCarousel, type FeaturedBook } from "@/components/home/BookCarousel";
 
-const CODE_CLUB_URL = process.env.NEXT_PUBLIC_CODE_CLUB_URL || "https://code.example.org";
+const CODE_CLUB_URL = process.env.NEXT_PUBLIC_CODE_CLUB_URL || "https://mesivta-code.onrender.com/";
 
 async function getFeaturedBooks(): Promise<FeaturedBook[]> {
   try {
