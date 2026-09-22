@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Mesivta Library — Official Opening Poster</title>
+<style>
+  @page { size: A3 portrait; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 297mm;
+    height: 420mm;
+    background: hsl(210, 30%, 98%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: hsl(222, 30%, 14%);
+  }
+
+  .poster {
+    position: relative;
+    width: 297mm;
+    height: 420mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header.brand {
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+    padding: 10mm 16mm;
+    background: hsl(210, 30%, 98%);
+    border-bottom: 1px solid hsl(210, 18%, 88%);
+  }
+  header.brand img { height: 22mm; width: auto; }
+  header.brand .word {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  header.brand .word .name {
+    font-size: 21pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  header.brand .word .sub {
+    margin-top: 2mm;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: hsl(220, 12%, 40%);
+  }
+
+  /* hero banner */
+  .hero {
+    position: relative;
+    height: 128mm;
+    overflow: hidden;
+  }
+  .hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2,10,25,0.55) 0%, rgba(2,10,25,0.82) 100%);
+  }
+  .hero .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16mm;
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    width: fit-content;
+    font-size: 12pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: hsl(199, 85%, 68%);
+    border: 1px solid hsla(199, 85%, 68%, 0.55);
+    border-radius: 999px;
+    padding: 2.5mm 6mm;
+    background: hsla(199, 85%, 68%, 0.1);
+  }
+  .hero h1 {
+    margin: 6mm 0 0;
+    font-size: 52pt;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    max-width: 200mm;
+  }
+  .hero p {
+    margin-top: 5mm;
+    font-size: 16pt;
+    color: rgba(255,255,255,0.9);
+    max-width: 185mm;
+    line-height: 1.5;
+  }
+
+  .body {
+    position: relative;
+    flex: 1;
+    padding: 12mm 16mm 10mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hours-title {
+    font-size: 11pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: hsl(199, 80%, 40%);
+    font-weight: 700;
+  }
+
+  .hours-grid {
+    margin-top: 6mm;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 8mm;
+  }
+  .hours-card {
+    background: #fff;
+    border: 1px solid hsl(210, 18%, 88%);
+    border-radius: 5mm;
+    padding: 9mm 10mm;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  }
+  .hours-card .label {
+    font-size: 11pt;
+    font-weight: 700;
+    color: hsl(222, 30%, 14%);
+  }
+  .hours-card .time {
+    margin-top: 3mm;
+    font-size: 26pt;
+    font-weight: 800;
+    color: hsl(199, 80%, 40%);
+    line-height: 1.1;
+  }
+  .hours-card .note {
+    margin-top: 2mm;
+    font-size: 11pt;
+    color: hsl(220, 12%, 40%);
+  }
+
+  .loan-banner {
+    margin-top: 8mm;
+    display: flex;
+    align-items: center;
+    gap: 6mm;
+    background: hsla(199, 80%, 45%, 0.08);
+    border: 1px solid hsla(199, 80%, 45%, 0.3);
+    border-radius: 5mm;
+    padding: 7mm 9mm;
+  }
+  .loan-banner .badge {
+    flex-shrink: 0;
+    width: 16mm;
+    height: 16mm;
+    border-radius: 50%;
+    background: hsl(199, 80%, 45%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18pt;
+  }
+  .loan-banner .text .t1 {
+    font-size: 15pt;
+    font-weight: 700;
+    color: hsl(222, 30%, 14%);
+  }
+  .loan-banner .text .t2 {
+    margin-top: 1.5mm;
+    font-size: 11.5pt;
+    color: hsl(220, 12%, 40%);
+  }
+
+  /* book review promo, matching site card treatment */
+  .promo {
+    position: relative;
+    margin-top: 8mm;
+    border-radius: 6mm;
+    overflow: hidden;
+    height: 92mm;
+  }
+  .promo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .promo .shade {
+    position: absolute;
+    inset: 0;
+    background: rgba(2,6,23,0.7);
+  }
+  .promo .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10mm;
+    max-width: 175mm;
+  }
+  .promo .eyebrow {
+    font-size: 11pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: hsl(199, 85%, 68%);
+    font-weight: 700;
+  }
+  .promo h2 {
+    margin: 4mm 0 0;
+    font-size: 27pt;
+    font-weight: 800;
+    color: #fff;
+  }
+  .promo p {
+    margin-top: 3mm;
+    font-size: 13pt;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+  }
+
+  .spacer { flex: 1; }
+
+  footer.info {
+    margin-top: 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid hsl(210, 18%, 88%);
+    padding-top: 7mm;
+  }
+  footer.info .contact {
+    font-size: 15pt;
+    font-weight: 700;
+    color: hsl(222, 30%, 14%);
+  }
+  footer.info .contact .sub {
+    margin-top: 1.5mm;
+    font-size: 11pt;
+    font-weight: 400;
+    color: hsl(220, 12%, 40%);
+  }
+  footer.info .stamp {
+    font-size: 11pt;
+    color: hsl(220, 12%, 40%);
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <header class="brand">
+      <img src="file:///home/hydrochilli/Bellis-Digi/mesivta-library/public/shield-crop.png" alt="Mesivta Library" />
+      <div class="word">
+        <span class="name">Mesivta Library</span>
+        <span class="sub">Manchester Mesivta</span>
+      </div>
+    </header>
+
+    <div class="hero">
+      <img src="file:///home/hydrochilli/Bellis-Digi/mesivta-library/public/home/catalog-search.jpg" alt="" />
+      <div class="overlay"></div>
+      <div class="content">
+        <span class="eyebrow">Officially Open</span>
+        <h1>The Library is Now Open</h1>
+        <p>Books are now available for loan. Come and explore the shelves, find your next read, and make the most of everything the library has to offer.</p>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="hours-title">Opening Hours</div>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <div class="label">Monday – Thursday</div>
+          <div class="time">12:35 – 1:20</div>
+          <div class="note">Open to all students</div>
+        </div>
+        <div class="hours-card">
+          <div class="label">Sixth Form Only</div>
+          <div class="time">2:20 – 3:20</div>
+          <div class="note">Extra afternoon session</div>
+        </div>
+      </div>
+
+      <div class="loan-banner">
+        <div class="badge">&#128214;</div>
+        <div class="text">
+          <div class="t1">Books are now available for loan</div>
+          <div class="t2">See Mr Mainzer in the Library for further information.</div>
+        </div>
+      </div>
+
+      <div class="promo">
+        <img src="file:///home/hydrochilli/Bellis-Digi/mesivta-library/public/home/book-reviews.jpg" alt="" />
+        <div class="shade"></div>
+        <div class="content">
+          <span class="eyebrow">Share what you think</span>
+          <h2>Write a book review. Win a prize.</h2>
+          <p>Tell other students what you thought, recommend your next great read, and get the chance to have your review selected for a prize.</p>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <footer class="info">
+        <div class="contact">
+          Mesivta Library
+          <div class="sub">See Mr Mainzer in the Library for further info</div>
+        </div>
+        <div class="stamp">Manchester Mesivta &middot; Library Services</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

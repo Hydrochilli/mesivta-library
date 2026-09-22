@@ -1,0 +1,26 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Locate Code Club project",
+			"type": "shell",
+			"command": "find /home/hydrochilli/Bellis-Digi -maxdepth 3 -name package.json -print",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect candidate Code Club apps",
+			"type": "shell",
+			"command": "for d in /home/hydrochilli/Bellis-Digi/mesivta-ide /home/hydrochilli/Bellis-Digi/codeboard; do printf '\\n--- %s ---\\n' \"$d\"; node -e \"const p=require('$d/package.json'); console.log(JSON.stringify({name:p.name,scripts:p.scripts},null,2))\"; done",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Code Club server",
+			"type": "shell",
+			"command": "cd ../mesivta-ide && npm run dev -- --port 3001",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
