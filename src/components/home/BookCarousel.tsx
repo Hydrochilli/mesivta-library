@@ -33,7 +33,7 @@ export function BookCarousel({ books }: { books: FeaturedBook[] }) {
             From the shelves
           </p>
           <h2 id="featured-books-title" className="mt-1 text-2xl font-bold text-foreground">
-            Books of interest
+            Good reads
           </h2>
           <p className="mt-1 text-sm text-muted">
             A changing selection from our catalogue.

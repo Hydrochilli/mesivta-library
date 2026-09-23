@@ -19,6 +19,7 @@ async function getFeaturedBooks(): Promise<FeaturedBook[]> {
     const categories = new Set<string>();
     for (const book of data ?? []) {
       if (!book.cover_url) continue;
+      if (book.title?.toLowerCase().includes("christmas carol")) continue;
       const author = book.author?.toLowerCase() ?? "";
       const category = book.category?.toLowerCase() ?? "";
       if (selected.length < 3 || (!authors.has(author) && !categories.has(category))) {
